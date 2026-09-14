@@ -1,0 +1,478 @@
+<!doctype html>
+<html lang="pt-BR" class="booting">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfólio de Daniel Santa Rosa - desenvolvimento front-end, back-end, Engenharia de Dados e atuação acadêmica na PUC Minas." />
+  <meta name="theme-color" content="#F2EFE3" />
+  <link rel="icon" type="image/png" href="img/favicon.png">
+  <title>Daniel Santa Rosa | Software & Dados</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500;1,9..144,600&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="boot-screen" aria-hidden="true">
+    <div class="boot-terminal">
+      <p><span class="prompt">$</span> initializing portfolio_kernel...</p>
+      <p><span class="success">[OK]</span> loading software modules</p>
+      <p><span class="success">[OK]</span> mounting developer profile</p>
+      <p><span class="success">[OK]</span> starting visual interface</p>
+      <div class="boot-progress"><span></span></div>
+    </div>
+  </div>
+
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="grid-overlay" aria-hidden="true"></div>
+  <div id="scroll-progress" aria-hidden="true"></div>
+
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <header class="site-header" id="top">
+    <a class="brand magnetic" href="#home" aria-label="Ir para o início">
+      <svg class="brand-mark" viewBox="0 0 52 52" aria-hidden="true">
+        <path d="M14 8h24l8 8v20l-8 8H14l-8-8V16z" />
+        <path class="brand-line" d="M17 17l-7 9 7 9M35 17l7 9-7 9M29 14l-6 24" />
+      </svg>
+      <span>daniel<span class="accent">.dev</span></span>
+    </a>
+
+    <nav class="desktop-nav" aria-label="Navegação principal">
+      <a href="#about" data-i18n="nav.about">sobre</a>
+      <a href="#skills" data-i18n="nav.skills">habilidades</a>
+      <a href="#projects" data-i18n="nav.projects">projetos</a>
+      <a href="#experience" data-i18n="nav.experience">experiência</a>
+      <a href="#activities" data-i18n="nav.activities">atividades</a>
+      <a href="#contact" data-i18n="nav.contact">contato</a>
+    </nav>
+
+    <div class="header-actions">
+      <button id="language-toggle" class="terminal-button compact magnetic" type="button" aria-label="Alterar idioma">
+        <span class="status-dot"></span><span id="language-label">EN</span>
+      </button>
+      <button id="menu-toggle" class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <div id="mobile-menu" class="mobile-menu" aria-hidden="true">
+    <nav aria-label="Navegação móvel">
+      <a href="#about" data-i18n="nav.about">sobre</a>
+      <a href="#skills" data-i18n="nav.skills">habilidades</a>
+      <a href="#projects" data-i18n="nav.projects">projetos</a>
+      <a href="#experience" data-i18n="nav.experience">experiência</a>
+      <a href="#activities" data-i18n="nav.activities">atividades</a>
+      <a href="#contact" data-i18n="nav.contact">contato</a>
+    </nav>
+  </div>
+
+  <main>
+    <section id="home" class="hero section-shell">
+      <div class="hero-copy reveal">
+        <div class="eyebrow terminal-chip">
+          <span class="pulse"></span>
+          <span data-i18n="hero.available">disponível para oportunidades de estágio</span>
+        </div>
+
+        <p class="hero-path">~/portfolio/daniel-santa-rosa</p>
+        <h1>
+          <span data-i18n="hero.greeting">Olá, eu sou</span><br />
+          <span data-text="Daniel Santa Rosa">Daniel Santa Rosa</span>
+        </h1>
+
+        <div class="role-line" aria-live="polite">
+          <span class="prompt-symbol">&gt;</span>
+          <span id="typed-role">Desenvolvimento de Software & Dados</span>
+          <span class="typing-caret"></span>
+        </div>
+
+        <p class="hero-description" data-i18n="hero.description">
+          Desenvolvo aplicações front-end e back-end, integro sistemas e construo pipelines de dados com foco em soluções úteis, organizadas e orientadas a resultados.
+        </p>
+
+        <div class="hero-actions">
+          <a class="terminal-button primary magnetic" href="#projects">
+            <span>./</span><span data-i18n="hero.viewProjects">ver_projetos</span>
+          </a>
+          <a class="terminal-button magnetic" href="#contact">
+            <span>./</span><span data-i18n="hero.contact">iniciar_contato</span>
+          </a>
+          <a class="terminal-button magnetic" href="curriculo-daniel-santa-rosa-2026.pdf" download="curriculo-daniel-santa-rosa.pdf">
+            <span>↓</span><span data-i18n="hero.resume">baixar_currículo</span>
+          </a>
+        </div>
+
+        <div class="hero-metrics">
+          <div><strong data-counter="2">0</strong><span data-i18n="hero.metricProjects">projetos em destaque</span></div>
+          <div><strong data-counter="3">0</strong><span data-i18n="hero.metricFocus">frentes de atuação</span></div>
+          <div><strong data-counter="2029">0</strong><span data-i18n="hero.metricGraduation">conclusão prevista</span></div>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal delay-1" aria-label="Visualização abstrata do ecossistema de desenvolvimento e dados">
+        <div class="visual-window tilt-card">
+          <div class="window-bar">
+            <div class="window-dots"><span></span><span></span><span></span></div>
+            <span>software_stack.svg</span>
+            <span>● live</span>
+          </div>
+          <div class="svg-stage">
+            <svg class="data-orbit" viewBox="0 0 620 620" role="img" aria-label="Rede animada de tecnologias de software e dados">
+              <defs>
+                <linearGradient id="orbitGradient" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#FF4630" />
+                  <stop offset="100%" stop-color="#2A3EFF" />
+                </linearGradient>
+                <radialGradient id="coreGradient">
+                  <stop offset="0%" stop-color="#FF4630" stop-opacity=".75" />
+                  <stop offset="100%" stop-color="#FF4630" stop-opacity="0" />
+                </radialGradient>
+                <filter id="glow">
+                  <feGaussianBlur stdDeviation="6" result="blur" />
+                  <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+                </filter>
+              </defs>
+              <circle class="halo" cx="310" cy="310" r="118" fill="url(#coreGradient)" />
+              <circle class="orbit orbit-a" cx="310" cy="310" r="220" />
+              <circle class="orbit orbit-b" cx="310" cy="310" r="165" />
+              <ellipse class="orbit orbit-c" cx="310" cy="310" rx="245" ry="105" transform="rotate(-24 310 310)" />
+              <ellipse class="orbit orbit-d" cx="310" cy="310" rx="245" ry="105" transform="rotate(64 310 310)" />
+              <g class="connection-lines">
+                <path d="M145 205L310 310L470 184" />
+                <path d="M120 392L310 310L492 408" />
+                <path d="M236 80L310 310L388 530" />
+              </g>
+              <g class="core" filter="url(#glow)">
+                <polygon points="310,230 380,270 380,350 310,390 240,350 240,270" />
+                <polyline points="240,270 310,310 380,270" />
+                <polyline points="310,310 310,390" />
+                <text x="310" y="305">CODE</text>
+                <text x="310" y="330">&amp; DATA</text>
+              </g>
+              <g class="nodes">
+                <g transform="translate(145 205)"><circle r="12" /><text x="20" y="5">REACT</text></g>
+                <g transform="translate(470 184)"><circle r="12" /><text x="20" y="5">NODE</text></g>
+                <g transform="translate(120 392)"><circle r="12" /><text x="20" y="5">.NET</text></g>
+                <g transform="translate(492 408)"><circle r="12" /><text x="20" y="5">SQL</text></g>
+                <g transform="translate(236 80)"><circle r="12" /><text x="20" y="5">PYTHON</text></g>
+                <g transform="translate(388 530)"><circle r="12" /><text x="20" y="5">API</text></g>
+              </g>
+              <circle class="packet packet-1" r="7" />
+              <circle class="packet packet-2" r="7" />
+              <circle class="packet packet-3" r="7" />
+            </svg>
+            <div class="floating-code code-a"><span>01</span> &lt;Frontend /&gt;</div>
+            <div class="floating-code code-b"><span>02</span> api.handle()</div>
+            <div class="floating-code code-c"><span>03</span> pipeline.run()</div>
+          </div>
+          <div class="window-status">
+            <span>CPU 24%</span><span>MEM 42%</span><span>LATENCY 08ms</span>
+          </div>
+        </div>
+      </div>
+
+      <a class="scroll-hint" href="#about" aria-label="Rolar para a próxima seção">
+        <span>scroll</span><i></i>
+      </a>
+    </section>
+
+    <section id="about" class="content-section section-shell">
+      <div class="section-heading reveal">
+        <span class="section-index">01.</span>
+        <div><p class="section-command">$ cat about.md</p><h2 data-i18n="about.title">Sobre mim</h2></div>
+      </div>
+
+      <div class="about-grid">
+        <article class="terminal-panel reveal">
+          <div class="panel-bar"><span>about.md</span><span>UTF-8</span></div>
+          <div class="panel-content about-copy">
+            <p data-i18n="about.p1">Sou estudante de Sistemas de Informação na PUC Minas e Técnico em Tecnologia da Informação pela FUNEC, com interesse em Desenvolvimento de Software e Engenharia de Dados. Na universidade, também atuo como monitor e em funções de representação estudantil.</p>
+            <p data-i18n="about.p2">Atuo em projetos que conectam front-end, back-end e dados, usando React, Node.js, C#/.NET, Python e PostgreSQL para transformar necessidades em aplicações e fluxos funcionais.</p>
+            <p data-i18n="about.p3">Busco uma oportunidade de estágio para aplicar e expandir meus conhecimentos em desenvolvimento de aplicações, integração de sistemas e construção de soluções orientadas a dados.</p>
+          </div>
+        </article>
+
+        <aside class="profile-config terminal-panel reveal delay-1">
+          <div class="panel-bar"><span>profile.config.json</span><span>{ }</span></div>
+          <pre><code>{
+  <span class="key">"name"</span>: <span class="string">"Daniel Caires Soares Santa Rosa"</span>,
+  <span class="key">"role"</span>: <span class="string" data-i18n="about.roleJson">"Software & Dados"</span>,
+  <span class="key">"location"</span>: <span class="string">"Contagem, MG"</span>,
+  <span class="key">"focus"</span>: [
+    <span class="string">"Front-end"</span>,
+    <span class="string">"Back-end"</span>,
+    <span class="string">"Data Engineering"</span>
+  ],
+  <span class="key">"status"</span>: <span class="string" data-i18n="about.statusJson">"open_to_internship"</span>,
+  <span class="key">"graduation"</span>: <span class="number">2029</span>
+}</code></pre>
+        </aside>
+      </div>
+    </section>
+
+    <section id="skills" class="content-section section-shell">
+      <div class="section-heading reveal">
+        <span class="section-index">02.</span>
+        <div><p class="section-command">$ ./scan-skills --all</p><h2 data-i18n="skills.title">Tecnologias e habilidades</h2></div>
+      </div>
+
+      <div class="skills-layout">
+        <div class="skill-groups reveal">
+          <p class="touch-hint" data-i18n="skills.touchHint">Toque em uma categoria para expandir</p>
+          <article class="skill-group active" data-skill-group="frontend">
+            <div class="skill-header"><span>01</span><h3 data-i18n="skills.frontend">Desenvolvimento Front-end</h3><i>↗</i></div>
+            <div class="skill-tags"><span>React</span><span>JavaScript</span><span>HTML</span><span>CSS</span><span>Bootstrap</span></div>
+          </article>
+          <article class="skill-group" data-skill-group="backend">
+            <div class="skill-header"><span>02</span><h3 data-i18n="skills.backend">Desenvolvimento Back-end</h3><i>↗</i></div>
+            <div class="skill-tags"><span>Node.js</span><span>C#</span><span>.NET</span></div>
+          </article>
+          <article class="skill-group" data-skill-group="data-engineering">
+            <div class="skill-header"><span>03</span><h3 data-i18n="skills.dataEngineering">Engenharia de Dados</h3><i>↗</i></div>
+            <div class="skill-tags">
+              <span>ETL</span><span>Data Pipelines</span><span>Data Warehouse</span><span>Data Lake</span><span>Lakehouse</span><span>Apache Airflow</span><span>Apache Spark</span><span>Pandas</span><span data-i18n="skills.apiIntegration">Integração com APIs</span>
+            </div>
+          </article>
+          <article class="skill-group" data-skill-group="programming">
+            <div class="skill-header"><span>04</span><h3 data-i18n="skills.programming">Linguagens de Programação</h3><i>↗</i></div>
+            <div class="skill-tags"><span>Python</span><span>JavaScript</span><span>C#</span></div>
+          </article>
+          <article class="skill-group" data-skill-group="databases">
+            <div class="skill-header"><span>05</span><h3 data-i18n="skills.databases">Bancos de Dados</h3><i>↗</i></div>
+            <div class="skill-tags"><span>PostgreSQL</span><span>MySQL</span><span>SQL</span></div>
+          </article>
+          <article class="skill-group" data-skill-group="tools">
+            <div class="skill-header"><span>06</span><h3 data-i18n="skills.toolsInfrastructure">Ferramentas, Infraestrutura & Cloud</h3><i>↗</i></div>
+            <div class="skill-tags"><span>Docker</span><span>Git</span><span>GitHub</span><span>Linux</span><span>AWS</span></div>
+          </article>
+          <article class="skill-group" data-skill-group="languages">
+            <div class="skill-header"><span>07</span><h3 data-i18n="skills.languages">Idiomas</h3><i>↗</i></div>
+            <div class="skill-tags"><span data-i18n="skills.portugueseNative">Português (Nativo)</span><span data-i18n="skills.englishAdvanced">Inglês (Avançado)</span></div>
+          </article>
+        </div>
+
+        <div class="radar-panel terminal-panel reveal delay-1">
+          <div class="panel-bar"><span>capability_matrix</span><span>LIVE</span></div>
+          <div class="radar-visual">
+            <div class="radar-ring r1"></div><div class="radar-ring r2"></div><div class="radar-ring r3"></div>
+            <div class="radar-axis a1"></div><div class="radar-axis a2"></div><div class="radar-axis a3"></div><div class="radar-axis a4"></div>
+            <div class="radar-shape"></div>
+            <span class="radar-label l1">FRONT</span><span class="radar-label l2">BACK</span><span class="radar-label l3">DATA</span><span class="radar-label l4">CLOUD</span>
+          </div>
+          <div class="system-log" aria-hidden="true">
+            <p><span>09:41:02</span> React + JavaScript interface ready</p>
+            <p><span>09:41:03</span> Node.js + .NET services detected</p>
+            <p><span>09:41:03</span> Python + Airflow pipeline connected</p>
+            <p><span>09:41:04</span> PostgreSQL + AWS available</p>
+            <p class="log-live"><span>09:41:05</span> awaiting next challenge_</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="content-section section-shell">
+      <div class="section-heading reveal">
+        <span class="section-index">03.</span>
+        <div><p class="section-command">$ ls ./featured-projects</p><h2 data-i18n="projects.title">Projetos em destaque</h2></div>
+      </div>
+
+      <div class="projects-grid">
+        <article class="project-card tilt-card reveal">
+          <div class="project-topline"><span>PROJECT_01</span><span class="project-status" data-i18n="projects.personal">● PESSOAL</span></div>
+          <div class="project-graphic pipeline-graphic" aria-hidden="true">
+            <svg viewBox="0 0 560 260">
+              <g class="pipe-lines"><path d="M70 130H200"/><path d="M360 130H490"/><path d="M280 55V95"/><path d="M280 165V210"/></g>
+              <g class="pipe-node"><rect x="30" y="96" width="80" height="68" rx="8"/><text x="70" y="126">API</text><text x="70" y="147">SOURCE</text></g>
+              <g class="pipe-node core-node"><rect x="200" y="95" width="160" height="70" rx="8"/><text x="280" y="125">ETL ENGINE</text><text x="280" y="148">PROCESSING</text></g>
+              <g class="pipe-node"><rect x="450" y="96" width="80" height="68" rx="8"/><text x="490" y="126">DATA</text><text x="490" y="147">WAREHOUSE</text></g>
+              <g class="pipe-node mini"><rect x="240" y="18" width="80" height="42" rx="7"/><text x="280" y="44">AIRFLOW</text></g>
+              <g class="pipe-node mini"><rect x="240" y="205" width="80" height="42" rx="7"/><text x="280" y="231">DASHBOARD</text></g>
+              <circle class="moving-data" r="7">
+                <animateMotion dur="4s" repeatCount="indefinite" path="M70 130H490" />
+              </circle>
+              <circle class="moving-data" r="7">
+                <animateMotion dur="3s" begin="-1s" repeatCount="indefinite" path="M280 55V210" />
+              </circle>
+            </svg>
+          </div>
+          <div class="project-content">
+            <p class="project-type">DATA ENGINEERING</p>
+            <h3 data-i18n="projects.p1Title">Pipeline de Dados Financeiros</h3>
+            <p data-i18n="projects.p1Desc">Pipeline ETL para coleta automatizada de dados financeiros via APIs públicas, com tratamento e enriquecimento em Python e Pandas, armazenamento em PostgreSQL e orquestração com Apache Airflow.</p>
+            <div class="project-stack"><span>Python</span><span>Pandas</span><span>PostgreSQL</span><span>Airflow</span><span>Docker</span><span>Git</span></div>
+            <div class="project-links">
+              <a href="https://github.com/danielsantarosa/Pipeline-Financeiro" target="_blank" rel="noreferrer" data-i18n="projects.viewGithub">Ver GitHub ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card tilt-card reveal">
+          <div class="project-topline"><span>PROJECT_02</span><span class="project-status" data-i18n="projects.academic">● ACADÊMICO</span></div>
+          <div class="project-graphic analytics-graphic" aria-hidden="true">
+            <div class="mini-dashboard">
+              <div class="dash-sidebar"><i></i><i></i><i></i><i></i></div>
+              <div class="dash-main">
+                <div class="dash-header"><span></span><span></span></div>
+                <div class="dash-kpis"><i></i><i></i><i></i></div>
+                <div class="dash-chart"><b style="--h:42%"></b><b style="--h:68%"></b><b style="--h:54%"></b><b style="--h:88%"></b><b style="--h:72%"></b><b style="--h:94%"></b></div>
+              </div>
+            </div>
+          </div>
+          <div class="project-content">
+            <p class="project-type">WEB APPLICATION</p>
+            <h3 data-i18n="projects.p2Title">Sistema para Lanchonetes Universitárias</h3>
+            <p data-i18n="projects.p2Desc">Aplicação web para pedidos antecipados, agendamento de retiradas e validação por QR Code, com painel administrativo e indicadores de pedidos e produtos mais vendidos.</p>
+            <div class="project-stack"><span>JavaScript</span><span>HTML</span><span>CSS</span><span>Bootstrap</span><span>Local Storage</span><span>Git</span></div>
+            <div class="project-links">
+              <a href="https://flash-lanche.vercel.app/" target="_blank" rel="noreferrer" data-i18n="projects.viewProject">Ver Projeto ↗</a>
+              <a href="https://github.com/danielsantarosa/FlashLanche" target="_blank" rel="noreferrer" data-i18n="projects.viewGithub">Ver Github ↗</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="experience" class="content-section section-shell">
+      <div class="section-heading reveal">
+        <span class="section-index">04.</span>
+        <div><p class="section-command">$ git log --career --oneline</p><h2 data-i18n="experience.title">Experiência e formação</h2></div>
+      </div>
+
+      <div class="timeline">
+        <article class="timeline-item reveal">
+          <div class="timeline-marker"><span></span></div>
+          <div class="timeline-date" data-i18n="experience.technicalDate">JAN 2020 — DEZ 2022</div>
+          <div class="timeline-card terminal-panel">
+            <div class="timeline-meta"><span data-i18n="experience.technicalType">FORMAÇÃO TÉCNICA</span><span>commit a20f22</span></div>
+            <h3 data-i18n="experience.technicalDegree">Técnico em Tecnologia da Informação · FUNEC</h3>
+            <p data-i18n="experience.technicalDesc">Formação técnica concluída em dezembro de 2022, complementando meu bacharelado e meu desenvolvimento contínuo na área de tecnologia.</p>
+            <div class="timeline-tags"><span data-i18n="experience.programming">Programação</span><span>Software</span><span data-i18n="experience.infrastructure">Infraestrutura</span></div>
+          </div>
+        </article>
+
+        <article class="timeline-item reveal delay-1">
+          <div class="timeline-marker"><span></span></div>
+          <div class="timeline-date" data-i18n="experience.degreeDate">JAN 2026 — DEZ 2029</div>
+          <div class="timeline-card terminal-panel">
+            <div class="timeline-meta"><span data-i18n="experience.educationType">FORMAÇÃO ACADÊMICA</span><span>commit c4d92f</span></div>
+            <h3 data-i18n="experience.degree">Sistemas de Informação · PUC Minas</h3>
+            <p data-i18n="experience.degreeDesc">Bacharelado em andamento, com formação voltada a desenvolvimento de sistemas, bancos de dados, engenharia de software e aplicação da tecnologia nas organizações.</p>
+            <div class="timeline-tags"><span>Software</span><span>Data</span><span data-i18n="experience.business">Negócios</span></div>
+          </div>
+        </article>
+
+        <article class="timeline-item reveal">
+          <div class="timeline-marker"><span></span></div>
+          <div class="timeline-date">NEXT</div>
+          <div class="timeline-card terminal-panel future-card">
+            <div class="timeline-meta"><span data-i18n="experience.nextType">PRÓXIMO COMMIT</span><span>pending...</span></div>
+            <h3 data-i18n="experience.nextTitle">Estágio em Tecnologia</h3>
+            <p data-i18n="experience.nextDesc">Busco integrar uma equipe onde eu possa aplicar meus conhecimentos, evoluir tecnicamente e contribuir em projetos de front-end, back-end, integração de sistemas ou Engenharia de Dados.</p>
+            <div class="timeline-tags"><span data-i18n="experience.learning">Aprendizado</span><span data-i18n="experience.impact">Impacto</span><span data-i18n="experience.growth">Crescimento</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="activities" class="content-section section-shell">
+      <div class="section-heading reveal">
+        <span class="section-index">05.</span>
+        <div><p class="section-command">$ cat ./campus/activities.log</p><h2 data-i18n="activities.title">Atividades extracurriculares</h2></div>
+      </div>
+
+      <div class="activities-grid">
+        <article class="activity-card terminal-panel reveal">
+          <div class="activity-topline"><span>ACTIVITY_01</span><span class="activity-status" data-i18n="activities.current">● ATUAL</span></div>
+          <div class="activity-content">
+            <div class="activity-heading">
+              <span class="activity-number" aria-hidden="true">01</span>
+              <p class="activity-organization">PUC MINAS</p>
+            </div>
+            <h3 data-i18n="activities.monitorTitle">Monitor de Algoritmos e Técnicas de Programação</h3>
+            <p data-i18n="activities.monitorDesc">Atuo como monitor da disciplina, auxiliando estudantes na compreensão de lógica de programação, resolução de exercícios e desenvolvimento de algoritmos, além de prestar suporte no esclarecimento de dúvidas.</p>
+            <div class="activity-tags"><span data-i18n="activities.logic">Lógica de programação</span><span data-i18n="activities.algorithms">Algoritmos</span><span data-i18n="activities.academicSupport">Apoio acadêmico</span></div>
+          </div>
+        </article>
+
+        <article class="activity-card terminal-panel reveal delay-1">
+          <div class="activity-topline"><span>ACTIVITY_02</span><span class="activity-status" data-i18n="activities.current">● ATUAL</span></div>
+          <div class="activity-content">
+            <div class="activity-heading">
+              <span class="activity-number" aria-hidden="true">02</span>
+              <p class="activity-organization">PUC MINAS</p>
+            </div>
+            <h3 data-i18n="activities.studentRepTitle">Representante Discente do Curso de Sistemas de Informação</h3>
+            <p data-i18n="activities.studentRepDesc">Escolhido para representar os estudantes perante a coordenação e a administração do curso, atuando na comunicação com a instituição e apresentando demandas, sugestões e necessidades do corpo discente.</p>
+            <div class="activity-tags"><span data-i18n="activities.studentRepresentation">Representação estudantil</span><span data-i18n="activities.communication">Comunicação</span><span data-i18n="activities.leadership">Liderança</span></div>
+          </div>
+        </article>
+
+        <article class="activity-card terminal-panel reveal">
+          <div class="activity-topline"><span>ACTIVITY_03</span><span class="activity-status" data-i18n="activities.current">● ATUAL</span></div>
+          <div class="activity-content">
+            <div class="activity-heading">
+              <span class="activity-number" aria-hidden="true">03</span>
+              <p class="activity-organization">PUC MINAS</p>
+            </div>
+            <h3 data-i18n="activities.classRepTitle">Representante de Turma - Sistemas de Informação</h3>
+            <p data-i18n="activities.classRepDesc">Atuo como representante da turma, facilitando a comunicação entre estudantes e professores, organizando demandas acadêmicas e contribuindo para o alinhamento de informações relacionadas às atividades do curso.</p>
+            <div class="activity-tags"><span data-i18n="activities.communication">Comunicação</span><span data-i18n="activities.organization">Organização</span><span data-i18n="activities.collaboration">Colaboração</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="terminal" class="content-section section-shell terminal-section">
+      <div class="section-heading reveal">
+        <span class="section-index">06.</span>
+        <div><p class="section-command">$ ./interactive-terminal</p><h2 data-i18n="terminal.title">Terminal interativo</h2></div>
+      </div>
+
+      <div class="interactive-terminal terminal-panel reveal">
+        <div class="terminal-titlebar">
+          <div class="window-dots"><span></span><span></span><span></span></div>
+          <span>guest@daniel-portfolio:~</span>
+          <button id="terminal-clear" type="button">clear</button>
+        </div>
+        <div id="terminal-output" class="terminal-output" aria-live="polite">
+          <p data-i18n="terminal.welcome">DanielOS v1.0.0 — Digite “help” para ver os comandos disponíveis.</p>
+        </div>
+        <form id="terminal-form" class="terminal-input-line">
+          <label for="terminal-input">guest@portfolio:~$</label>
+          <input id="terminal-input" type="text" autocomplete="off" spellcheck="false" aria-label="Comando do terminal" />
+        </form>
+      </div>
+    </section>
+
+    <section id="contact" class="contact-section section-shell">
+      <div class="contact-glow" aria-hidden="true"></div>
+      <div class="contact-content reveal">
+        <p class="section-command">$ ./start-conversation</p>
+        <h2 data-i18n="contact.title">Vamos construir algo relevante?</h2>
+        <p data-i18n="contact.description">Estou aberto a oportunidades de estágio em desenvolvimento de software, Engenharia de Dados e áreas relacionadas.</p>
+        <a class="terminal-button primary large magnetic" href="mailto:santarosa4041@gmail.com">
+          <span>mailto:</span><span>santarosa4041@gmail.com</span>
+        </a>
+        <div class="social-links">
+          <a class="magnetic" href="https://www.linkedin.com/in/danielcssantarosa" target="_blank" rel="noreferrer"><span>01</span>LinkedIn ↗</a>
+          <a class="magnetic" href="https://github.com/danielsantarosa" target="_blank" rel="noreferrer"><span>02</span>GitHub ↗</a>
+          <a class="magnetic" href="curriculo-daniel-santa-rosa-2026.pdf" download="curriculo-daniel-santa-rosa.pdf"><span>03</span><span class="social-label" data-i18n="contact.resume">Currículo ↓</span></a>
+          <a class="magnetic" href="https://wa.me/+5531982464185"><span>04</span>Telefone ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="current-year"></span> Daniel Caires Soares Santa Rosa</p>
+    <p data-i18n="footer.text">Projetado com software, dados e curiosidade.</p>
+    <a href="#home">↑ TOP</a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
